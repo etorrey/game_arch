@@ -1,0 +1,30 @@
+<% if @results.blank? %>
+  There were no results. 
+<% else %>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Summary</th>
+      <th>Rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @results.each do |result| %>
+      <tr>
+	<% if result.alternative_names.blank? %>
+          <td>none</td>
+	<% else %>
+	  <td><%= result.alternative_names.collect{|each| each['name']}.join(' ') %></td>
+	<% end %>
+	<td><%= result.summary.truncate(300) %></td>
+	<% if result.rating_count.to_i < 1 %>
+	   <td>no votes</td>
+        <% else %>
+  	   <td><%= result.rating.to_s.first(2) %>% of <%= result.rating_count %> votes</td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<% end %>
