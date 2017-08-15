@@ -1,8 +1,14 @@
 class SearchHistory < ApplicationRecord
 
   before_save :update_total
+  validates_presence_of :keyword
   validates_uniqueness_of :keyword
 
+
+  def self.top_10_game_searches
+    self.order('total desc').first(10)
+  end
+  
   def self.create_or_update_total(keyword)
     search_history = SearchHistory.where("keyword" => keyword).first
     if search_history.blank?

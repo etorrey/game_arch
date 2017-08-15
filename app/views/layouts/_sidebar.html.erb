@@ -1,0 +1,3 @@
+<% SearchHistory.top_10_game_searches.each do |search| %>
+  <div class='item'><%= search.keyword.truncate(40) %> <%= search.total %></div>
+<% end %>

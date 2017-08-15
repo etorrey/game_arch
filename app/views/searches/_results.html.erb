@@ -17,7 +17,7 @@
 	<% else %>
 	  <td><%= result.alternative_names.collect{|each| each['name']}.join(' ') %></td>
 	<% end %>
-	<td><%= result.summary.truncate(300) %></td>
+	<td><%= result.summary.to_s.truncate(300) %></td>
 	<% if result.rating_count.to_i < 1 %>
 	   <td>no votes</td>
         <% else %>

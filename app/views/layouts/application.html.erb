@@ -9,11 +9,17 @@
   </head>
 
   <body>
-    <%= render partial: 'layouts/header' %>
-    <div class="ui main text container">
-      <br />
-      <%= yield %>
+  <body>
+    <div class="ui sidebar inverted visible vertical menu">
+      <div id='sidebar'>
+	<%= render partial: 'layouts/sidebar' %>
+      </div>
     </div>
-    <%= render partial: 'layouts/footer' %>
+    <div class="pusher">
+      <div class="ui main text container">
+	<br />
+	<%= yield %>
+      </div>
+    </div>
   </body>
 </html>
