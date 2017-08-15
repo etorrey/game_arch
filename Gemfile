@@ -7,7 +7,8 @@ end
 
 # internet gaming database api gem
 gem "igdb_api"
-
+# semantic ui gem for styling
+gem 'semantic-ui-sass', git: 'https://github.com/doabit/semantic-ui-sass.git'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.3'
 # Use sqlite3 as the database for Active Record
