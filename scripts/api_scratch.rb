@@ -2,12 +2,12 @@ require 'timeout'
 require "net/http"
 require "uri"
 
-uri = URI.parse("https://api-2445582011268.apicast.io/games/")
+uri = URI.parse("https://api-2445582011268.apicast.io/games/count/")
 
 http = Net::HTTP.new(uri.host, uri.port) 
 http.use_ssl = true
 request = Net::HTTP::Get.new(uri.request_uri) 
-request['user-key'] = "key"
+request['user-key'] = ""
 request['Accept'] = "application/json"
 
 
