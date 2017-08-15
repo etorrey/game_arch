@@ -7,6 +7,7 @@ class SearchesController < ApplicationController
     if IGDB_CONNECTION.nil?
       flash[:failure] = "IGDB connection not established"
     else
+      SearchHistory.create_or_update_total(params[:keyword])
       @results = IGDB_CONNECTION::Game.search(query: params[:query])
     end
   end
