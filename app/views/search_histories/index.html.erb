@@ -1,20 +1,22 @@
 <h1 class="ui header">Game Arch: Search histories</h1>
+
+<%= will_paginate @search_histories %>
 <%= link_to 'Go back', root_path %>
 <table>
   <thead>
     <th>Keyword 
-      <%= link_to 'a-z', search_histories_path(sort: 'keyword asc') %>
-      <%= link_to 'z-a', search_histories_path(sort: 'keyword desc') %> 
+      <%= link_to 'a-z', search_histories_path(sort: 'keyword asc', page: params[:page]) %>
+      <%= link_to 'z-a', search_histories_path(sort: 'keyword desc', page: params[:page]) %> 
     </th>
     <th>
       Count
-      <%= link_to 'most', search_histories_path(sort: 'total desc') %>
-      <%= link_to 'least', search_histories_path(sort: 'total asc') %> 
+      <%= link_to 'most', search_histories_path(sort: 'total desc', page: params[:page]) %>
+      <%= link_to 'least', search_histories_path(sort: 'total asc', page: params[:page]) %> 
     </th>
     <th>
       Date
-      <%= link_to 'new', search_histories_path(sort: 'created_at desc') %>
-      <%= link_to 'old', search_histories_path(sort: 'created_at asc') %> 
+      <%= link_to 'new', search_histories_path(sort: 'created_at desc', page: params[:page]) %>
+      <%= link_to 'old', search_histories_path(sort: 'created_at asc', page: params[:page]) %> 
     </th>
   </thead>
   <tbody>
@@ -27,3 +29,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= will_paginate @search_histories %>
