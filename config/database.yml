@@ -22,5 +22,5 @@ test:
   database: game_arch_test
 
 production:
-  <<: *default
-  database: game_arch_production
+  pool: 20
+
