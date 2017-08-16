@@ -11,5 +11,14 @@ class SearchesController < ApplicationController
       @results = IGDB_CONNECTION::Game.search(query: params[:query])
     end
   end
+
+  def sidebar
+    if IGDB_CONNECTION.nil?
+      flash[:failure] = "IGDB connection not established"
+    else
+      @results = IGDB_CONNECTION::Game.search(query: params[:id])
+    end
+    render :create
+  end
  
 end
