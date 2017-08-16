@@ -1,6 +1,9 @@
 <% if @results.blank? %>
   There were no results. 
 <% else %>
+<% unless @search_history.blank? %>
+  <em>This search has been performed <%= @search_history.total %> <%= 'time'.pluralize(@search_history.total) %></em>
+<% end %>
 <table>
   <thead>
     <tr>
