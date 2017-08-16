@@ -3,8 +3,9 @@ class SearchHistory < ApplicationRecord
   before_save :update_total
   validates_presence_of :keyword
   validates_uniqueness_of :keyword
-
-
+  
+  VALID_SORT_ORDERS = ['created_at desc', 'create_date asc', 'keyword desc', 'keyword asc', 'total desc', 'total asc']
+                        
   def self.top_10_game_searches
     self.order('total desc').first(10)
   end
@@ -18,6 +19,15 @@ class SearchHistory < ApplicationRecord
       search_history.save
     end
     search_history
+  end
+
+  def self.sort_by(order)
+    if VALID_SORT_ORDERS.include?(order)
+      self.order(order)
+    else
+      self
+    end
+    
   end
   
   private

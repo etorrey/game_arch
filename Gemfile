@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# pagination for search histories
+gem "will_paginate"
 # need this for mocking out the api for tests
 gem "mocha"
 # internet gaming database api gem

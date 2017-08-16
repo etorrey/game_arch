@@ -1,0 +1,29 @@
+<h1 class="ui header">Game Arch: Search histories</h1>
+<%= link_to 'Go back', root_path %>
+<table>
+  <thead>
+    <th>Keyword 
+      <%= link_to 'a-z', search_histories_path(sort: 'keyword asc') %>
+      <%= link_to 'z-a', search_histories_path(sort: 'keyword desc') %> 
+    </th>
+    <th>
+      Count
+      <%= link_to 'most', search_histories_path(sort: 'total desc') %>
+      <%= link_to 'least', search_histories_path(sort: 'total asc') %> 
+    </th>
+    <th>
+      Date
+      <%= link_to 'new', search_histories_path(sort: 'created_at desc') %>
+      <%= link_to 'old', search_histories_path(sort: 'created_at asc') %> 
+    </th>
+  </thead>
+  <tbody>
+    <% @search_histories.each do |search_history| %>
+      <tr>
+	<td><%= search_history.keyword.to_s.truncate(40) %></td>
+	<td><%= search_history.total %></td>
+	<td><%= search_history.created_at %></td>	
+      </tr>
+    <% end %>
+  </tbody>
+</table>

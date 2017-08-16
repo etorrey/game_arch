@@ -1,0 +1,3 @@
+module SearchHistoriesHelper
+
+end

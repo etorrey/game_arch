@@ -1,4 +1,9 @@
-<div class='item header'><h2>Search history</h2></div>
-<% SearchHistory.top_10_game_searches.each do |search| %>
-  <%= link_to "#{search.keyword.to_s.truncate(40)} #{search.total}", sidebar_search_path(search.keyword), class: 'item', remote: true %>
+<% unless @hide_sidebar %>
+  <div class='item header'>
+    <h2>Top Searches</h2>
+    <strong><%= link_to 'View all searches', search_histories_path %></strong>
+  </div>
+  <% SearchHistory.top_10_game_searches.each do |search| %>
+    <%= link_to "#{search.keyword.to_s.truncate(40)} #{search.total}", sidebar_search_path(search.keyword), class: 'item', remote: true %>
+  <% end %>
 <% end %>
