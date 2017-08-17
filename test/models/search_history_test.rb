@@ -10,7 +10,7 @@ class SearchHistoryTest < ActiveSupport::TestCase
     assert !search.save
   end
 
-  test "should create_or_update_total for a new search history and then update it's total" do
+  test "should create_or_update_total for a new search history and then update its total" do
     search = SearchHistory.create_or_update_total('keyword')
     assert_equal 1, search.total 
 

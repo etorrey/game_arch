@@ -13,8 +13,8 @@ class SearchHistory < ApplicationRecord
   def self.create_or_update_total(keyword)
     search_history = SearchHistory.where("keyword" => keyword).first
     if search_history.blank?
-      search_history = self.create("keyword" => keyword,
-                  "total" => 0)
+      search_history = self.create(keyword: keyword,
+                                   total: 0)
     else
       search_history.save
     end

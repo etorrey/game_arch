@@ -5,7 +5,7 @@ class SearchesController < ApplicationController
 
   def create
     if IGDB_CONNECTION.nil?
-      flash[:failure] = "IGDB connection not established"
+      Rails.logger.warn("IGDB connection not established")
     else
       @search_history = SearchHistory.create_or_update_total(params[:query])
       @results = IGDB_CONNECTION::Game.search(query: params[:query])
@@ -14,7 +14,7 @@ class SearchesController < ApplicationController
 
   def sidebar
     if IGDB_CONNECTION.nil?
-      flash[:failure] = "IGDB connection not established"
+      Rails.logger.warn("IGDB connection not established")
     else
       @results = IGDB_CONNECTION::Game.search(query: params[:id])
     end

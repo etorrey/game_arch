@@ -1,24 +1,22 @@
-# README
+Welcome to the source for Game Arch!
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This application uses ruby 2+, rails 5+, and postgres.
 
-Things you may want to cover:
+It also uses the IGDB public API for data. In order to use the API you will need to create your own API key found here:
 
-* Ruby version
+https://www.igdb.com/api
 
-* System dependencies
+You will need to set an environment variable with the key, for example:
 
-* Configuration
+export IGDB_USER_KEY='yourkeyhere'
 
-* Database creation
+Additionally you may need to update the url in the initializer found at config/initializers/igdb_connection.rb
 
-* Database initialization
+Ideas for the future:
 
-* How to run the test suite
+* The keyword search incrementation is not really going to be totally accurate and using something better to increment the counter for searches, would be ideal. But, maybe that number isn't all to important to be perfect.
 
-* Services (job queues, cache servers, search engines, etc.)
+* Obviously this data is rarely going to change, so caching search histories would be a good first step towards optimization.
 
-* Deployment instructions
+* That monkey patch for the gem is just a festering mold that should be removed as soon as possible, so pushing a fix for the gem would be the right thing to do here.
 
-* ...
